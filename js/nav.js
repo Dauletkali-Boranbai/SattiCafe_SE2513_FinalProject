@@ -1,3 +1,4 @@
+// Keyboard navigation in the header: arrow keys, Home and End move focus between links.
 const navMenu = document.querySelector(".nav-menu");
 
 function getNavItems() {

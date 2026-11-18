@@ -1,3 +1,4 @@
+// Home page: shows the current date and time and updates it every second.
 function updateDateTime() {
     const dateTimeElement = document.getElementById("dateTime");
 

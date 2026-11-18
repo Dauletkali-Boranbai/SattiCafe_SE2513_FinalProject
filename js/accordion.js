@@ -1,3 +1,4 @@
+// About page: FAQ accordion - a click opens or closes the answer.
 const accordionButtons = document.querySelectorAll(".accordion-button");
 
 accordionButtons.forEach(function(button) {

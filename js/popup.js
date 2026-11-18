@@ -1,3 +1,4 @@
+// Home page: subscribe form with JS validation (name + email) and a fake request spinner.
 subscribeForm.addEventListener("submit", function(event) {
     event.preventDefault();
 

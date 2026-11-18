@@ -1,3 +1,5 @@
+// Menu page: filters, live search, order list and "Load more" (fetch from JSON).
+// menuManager keeps the data + current filter/search; render() redraws the table.
 const menuBody = document.getElementById("menuBody");
 const filterButtons = document.querySelectorAll(".filter-btn");
 const menuSearch = document.getElementById("menuSearch");

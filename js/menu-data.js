@@ -1,3 +1,4 @@
+// Base menu data (20 items). type = food/drink is used by the filters.
 const menuItems = [
     { name: "Tom Yum", description: "Spicy soup with shrimps", category: "Soup", type: "food", price: 4100 },
     { name: "Kinuchi Ramen", description: "Ramen with chicken, kimchi and egg", category: "Soup", type: "food", price: 5250 },

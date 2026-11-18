@@ -1,3 +1,4 @@
+// Gallery page: thumbnails change the main image with a fade animation and a caption.
 const mainImage = document.getElementById("mainImage");
 const mainCaption = document.getElementById("mainCaption");
 const thumbnails = document.querySelectorAll(".thumb");

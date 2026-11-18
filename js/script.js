@@ -1,3 +1,6 @@
+// Shared jQuery helpers used on every page (Assignment 6):
+// SattiUI (toasts, loading spinners, highlight plugin), menu autocomplete,
+// FAQ search, scroll progress bar, animated counters, copy buttons, lazy loading.
 
 var SattiUI = (function ($) {
 

@@ -1,3 +1,4 @@
+// Home page: 5-star rating, saved in localStorage (sattiRating).
 const stars = document.querySelectorAll(".star");
 const ratingMessage = document.getElementById("ratingMessage");
 

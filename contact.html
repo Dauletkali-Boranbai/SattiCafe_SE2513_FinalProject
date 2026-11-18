@@ -10,6 +10,7 @@
   <script src="js/script.js"></script>
 </head>
 <body class="page-grid">
+  <script>try{if(localStorage.getItem("sattiTheme")==="dark"){document.body.classList.add("dark-theme");}}catch(e){}</script>
 
   <header id="main-header" class="navbar navbar-expand-lg">
     <div class="container-fluid p-0 d-flex justify-content-between align-items-center">
@@ -47,7 +48,7 @@
   <aside class="sidebar">
     <h3>Working Hours</h3>
     <p>Monday - Sunday</p>
-    <p>10:00 AM - 12:00 AM</p>
+    <p>10:00 - 24:00</p>
   </aside>
 
   <main class="container-custom">
@@ -73,16 +74,19 @@
   <div class="mb-3">
     <label for="name" class="form-label fw-bold">Name</label>
     <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+    <small class="error-message" id="nameError"></small>
   </div>
 
   <div class="mb-3">
     <label for="phone" class="form-label fw-bold">Phone Number</label>
     <input type="text" class="form-control" id="phone" name="phone" placeholder="+7 777 777 77 77">
+    <small class="error-message" id="phoneError"></small>
   </div>
 
   <div class="mb-3">
     <label for="visit-time" class="form-label fw-bold">Choose Time</label>
     <input type="text" class="form-control" id="visit-time" name="visit-time" placeholder="Write your preferred time">
+    <small class="error-message" id="visit-timeError"></small>
   </div>
 
   <div class="mb-3">
@@ -102,7 +106,7 @@
   </main>
 
   <footer id="main-footer">
-    <p>Team: Dauletqali Boranbay, Adilkhan Batyrbek, Alibek Kantarbay</p>
+    <p>Team: Batyrbek Adilkhan, Alibek Kantarbay, Dauletkali Boranbay</p>
     <p>&copy; 2026 Satti Cafe. Student project.</p>
   </footer>
   <script src="js/sound.js"></script>

@@ -1,3 +1,4 @@
+// Home page: greeting depends on the time of day; the visitor's name is saved in localStorage.
 const greetingText = document.getElementById("greetingText");
 const greetingForm = document.getElementById("greetingForm");
 const greetingName = document.getElementById("greetingName");

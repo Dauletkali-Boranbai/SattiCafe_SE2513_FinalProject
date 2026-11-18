@@ -1,3 +1,5 @@
+// Light / dark theme toggle. The choice is stored in localStorage (sattiTheme)
+// so every page opens in the same mode.
 const changeBackground = document.getElementById("changeBackground");
 
 function updateTheme() {

@@ -1,48 +1,41 @@
 # Satti Cafe Website
 
-This is a simple HTML and CSS website for **Satti Cafe** in Astana.
+Multi-page responsive website for **Satti Cafe** (summer terrace and BOZA brewery) in Astana.
+Course: WEB Technologies 1 (Front End), group SE-2513, Astana IT University, 2026.
 
 ## Team
 
 * Batyrbek Adilkhan - Home, Team
 * Alibek Kantarbay - Contact, Menu
-* Dauletkali Boranbay - About Us, Gallery
+* Dauletkali Boranbay - About Us, Gallery, Profile (authentication)
 
-## Pages
+## Pages (7)
 
-The website has 6 pages:
-
-* Home
-* Menu
-* About Us
-* Gallery
-* Contact
-* Team
+`index.html`, `menu.html`, `about.html`, `gallery.html`, `contact.html`, `team.html`, `profile.html`
 
 ## Technologies
 
-* HTML, CSS, Bootstrap 5
-* JavaScript (DOM, events, fetch, Web Audio files)
+HTML5, CSS3, Bootstrap 5.3, vanilla JavaScript (ES6), jQuery 4, localStorage, fetch()
 
-## Features (Assignment 5)
+## Features
 
-* Star rating, greeting by time of day (Home)
-* Menu filter / search / "Load more" (fetch) / order list (Menu)
-* Image viewer with thumbnails (Gallery)
-* Async reservation form, reset button, "Are we open now?" (Contact)
-* Keyboard navigation (arrow keys) and sound effects on all pages
-* Day / Night theme
+* Responsive layout (Bootstrap grid, Flexbox, CSS Grid, media queries)
+* Light / dark mode toggle saved in localStorage
+* Authentication simulation: Sign Up (About page) and Log In / Profile / Log Out (Profile page)
+* JavaScript form validation (no HTML validation attributes, `novalidate`): email, password length and complexity, required fields, phone pattern
+* Search and filters: menu filters + live search with autocomplete, FAQ search, recipe search (last search saved)
+* External API: TheMealDB (recipe search / random dish) with loading state and error handling; reservation form sent with fetch()
+* Animations: hover effects, keyframes, scroll progress bar, counters, toasts, sounds
 
-## Features (Assignment 6, jQuery 4.0.0)
+## Structure
 
-* Menu: live filter, autocomplete suggestions, search highlighting
-* About: FAQ search with highlighting, loading spinner on Register
-* All pages: scroll progress bar
-* Home: animated number counters, spinner on Subscribe
-* Contact: copy-to-clipboard buttons, spinner on the reservation form
-* Toast notifications everywhere; lazy image loading (Gallery, About)
-* All jQuery code: `js/script.js`
+```
+index.html  menu.html  about.html  gallery.html  contact.html  team.html  profile.html
+css/style.css
+js/   (one script per feature, shared helpers in script.js)
+images/  sounds/  data/more-dishes.json
+```
 
-## How to Open
+## How to open
 
 Run a local server (fetch does not work from file://), e.g. `python -m http.server`, and open `http://localhost:8000`.

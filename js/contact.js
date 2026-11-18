@@ -8,6 +8,29 @@ const timeResult = document.getElementById("timeResult");
 const OPEN_HOUR = 10;  
 const CLOSE_HOUR = 24;  
 
+
+// Phone: optional "+", digits, spaces, dashes and brackets; 10-15 digits in total
+const PHONE_PATTERN = /^\+?[0-9\s\-()]{7,20}$/;
+
+function isValidPhone(phone) {
+    const digits = phone.replace(/\D/g, "");
+    return PHONE_PATTERN.test(phone) && digits.length >= 10 && digits.length <= 15;
+}
+
+// Show / clear an error message under a form field (field id + "Error")
+function setFieldError(fieldId, message) {
+    const box = document.getElementById(fieldId + "Error");
+    if (box) {
+        box.textContent = message;
+    }
+}
+
+function clearFieldErrors() {
+    ["name", "phone", "visit-time"].forEach(function (id) {
+        setFieldError(id, "");
+    });
+}
+
 function showStatus(text, type) {
     formStatus.textContent = text;
     formStatus.className = "form-status " + type;
@@ -36,18 +59,35 @@ if (contactForm) {
         const name = document.getElementById("name").value.trim();
         const phone = document.getElementById("phone").value.trim();
         const visitTime = document.getElementById("visit-time").value.trim();
-        const phonePattern = /^\+?[0-9\s\-()]{7,18}$/;
 
-        if (name === "" || phone === "" || visitTime === "") {
-            showStatus("Please fill in all required fields (Name, Phone, Time).", "error");
-            SattiUI.toast("Please fill in all required fields.", "error");
-            playSound("error");
-            return;
+        // Clear old errors, then validate every field and show a message under it
+        clearFieldErrors();
+        let isValid = true;
+
+        if (name === "") {
+            setFieldError("name", "Please enter your name.");
+            isValid = false;
+        } else if (name.length < 2) {
+            setFieldError("name", "Name must contain at least 2 characters.");
+            isValid = false;
         }
 
-        if (!phonePattern.test(phone)) {
-            showStatus("Please enter a valid phone number.", "error");
-            SattiUI.toast("Invalid phone number format.", "error");
+        if (phone === "") {
+            setFieldError("phone", "Please enter your phone number.");
+            isValid = false;
+        } else if (!isValidPhone(phone)) {
+            setFieldError("phone", "Enter a valid phone, e.g. +7 777 123 45 67 (10-15 digits).");
+            isValid = false;
+        }
+
+        if (visitTime === "") {
+            setFieldError("visit-time", "Please write your preferred time, e.g. today 19:00.");
+            isValid = false;
+        }
+
+        if (!isValid) {
+            showStatus("Please correct the errors above.", "error");
+            SattiUI.toast("Please correct the errors in the form", "error");
             playSound("error");
             return;
         }
@@ -84,6 +124,7 @@ if (contactForm) {
             contactForm.querySelectorAll("input, textarea").forEach(function (field) {
                 field.value = "";
             });
+            clearFieldErrors();
             showStatus("The form was cleared.", "info");
             SattiUI.toast("The form was cleared", "info");
             playSound("click");

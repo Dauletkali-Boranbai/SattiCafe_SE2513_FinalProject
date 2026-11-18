@@ -146,6 +146,7 @@ img {
 
 .container-custom {
   grid-area: main;
+  min-width: 0; /* grid item may shrink below its content width (no horizontal overflow) */
   padding: 2rem;
   width: 100%;
   max-width: 1200px;
@@ -295,7 +296,9 @@ th {
 
 @media (max-width: 850px) {
   .page-grid {
-    grid-template-columns: 1fr;
+    /* minmax(0, 1fr) lets the column shrink, so a wide table scrolls inside
+       .table-responsive instead of pushing the whole page off the screen */
+    grid-template-columns: minmax(0, 1fr);
     grid-template-areas:
       "header"
       "main"
@@ -1406,3 +1409,57 @@ body.dark-theme .recipe-card-body a {
 .recipe-card-body a {
     display: block;
 }
+
+
+/* =====================================================================
+   Final fixes: responsiveness and dark-theme contrast
+   ===================================================================== */
+
+/* Mobile: nothing may be wider than the screen */
+html, body { max-width: 100%; overflow-x: hidden; }
+img, video { max-width: 100%; }
+
+.table-responsive { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+.menu-controls, .filter-group { flex-wrap: wrap; }
+
+@media (max-width: 576px) {
+    .container-custom { padding: 1rem; }
+    .card { padding: 1rem; }
+    .filter-btn { padding: 0.35rem 0.8rem; font-size: 0.9rem; }
+    .menu-controls .form-control,
+    .autocomplete-wrap { width: 100%; max-width: 100%; }
+    table th, table td { font-size: 0.85rem; padding: 0.4rem; }
+}
+
+/* Dark theme: readable headings, placeholders and navigation buttons (WCAG AA contrast) */
+body.dark-theme .greeting-section h2,
+body.dark-theme .greeting-section h2 * {
+    color: #f2f2f2 !important;
+}
+
+body.dark-theme ::placeholder {
+    color: #b9c0c6 !important;
+    opacity: 1;
+}
+
+body.dark-theme .nav-menu a {
+    background-color: #3d4348;
+    color: #ffffff;
+}
+
+body.dark-theme .nav-menu a:hover,
+body.dark-theme .nav-menu a.active {
+    background-color: var(--color-primary) !important;
+    color: #ffffff !important;
+}
+
+body.dark-theme .sidebar h3,
+body.dark-theme .card h2 {
+    color: #a8e063;
+}
+
+body.dark-theme .error-message { color: #ff8a80; }
+body.dark-theme .text-muted { color: #b9c0c6 !important; }
+
+.filter-buttons { display: flex; flex-wrap: wrap; gap: 0.5rem; }

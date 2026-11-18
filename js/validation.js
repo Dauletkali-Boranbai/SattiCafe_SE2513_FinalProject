@@ -1,3 +1,6 @@
+// Sign Up form (About page). All checks are done in JavaScript (form has novalidate):
+// required name, email format, password length + complexity, password confirmation.
+// On success the user is saved to localStorage (sattiUsers) and redirected to profile.html.
 const registerForm = document.getElementById("registerForm");
 
 if (registerForm) {

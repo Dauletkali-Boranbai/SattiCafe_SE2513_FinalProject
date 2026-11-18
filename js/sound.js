@@ -1,3 +1,4 @@
+// UI sound effects (click, add, success, error, star) with an on/off switch saved in localStorage.
 
 const sounds = {
     click: new Audio("sounds/click.wav"),
